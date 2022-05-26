@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -17,16 +16,11 @@ public class Film {
     protected Long id;
     protected String title, type;
     protected short rate;
-    @ManyToOne(fetch = FetchType.LAZY,
-        cascade = {CascadeType.PERSIST,
-                    CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="GENRE_ID", nullable=true)
     protected Genre genre;
 
-    @ManyToMany(cascade = {
-                CascadeType.PERSIST,
-                CascadeType.MERGE
-        })
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "film_personage",
             joinColumns = {@JoinColumn(name="personage_id")},
@@ -34,14 +28,6 @@ public class Film {
     )
     protected Set<Personage> personages;
     protected Film() {}
-
-    public Film(Long id, String title, String type, short rate, Genre genre) {
-        this.id = id;
-        this.title = title;
-        this.type = type;
-        this.rate = rate;
-        this.genre = genre;
-    }
 
     public Film(String title, String type, short rate, Genre genre) {
         this.title = title;

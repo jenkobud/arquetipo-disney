@@ -25,14 +25,7 @@ public class Genre {
 
     protected Genre() {}
 
-    protected Genre(long id, String name, String imgUrl){
-        this.id = id;
-        this.name = name;
-        this.imgUrl = imgUrl;
-    }
-
-    public Genre(Long id, String name, String imgUrl, Set<Film> films) {
-        this.id = id;
+    public Genre(String name, String imgUrl, Set<Film> films) {
         this.name = name;
         this.imgUrl = imgUrl;
         this.films = films;

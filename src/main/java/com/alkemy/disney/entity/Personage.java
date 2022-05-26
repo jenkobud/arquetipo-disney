@@ -21,27 +21,13 @@ public class Personage {
     protected String imgUrl;
     protected Short age, weight;
 
-    @ManyToMany(cascade = {
+    @ManyToMany(mappedBy ="personages",
+            cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
-    @JoinTable(
-            name = "film_personage",
-            inverseJoinColumns = {@JoinColumn(name="personage_id")},
-            joinColumns = {@JoinColumn(name = "film_id")}
-    )
     protected Set<Film> films;
     protected Personage() {}
-
-    public Personage(Long id, String name, String history, String imgUrl, Short age, Short weight, Set<Film> films) {
-        this.id = id;
-        this.name = name;
-        this.history = history;
-        this.imgUrl = imgUrl;
-        this.age = age;
-        this.weight = weight;
-        this.films = films;
-    }
 
     public Personage(String name, String history, String imgUrl, Short age, Short weight, Set<Film> films) {
         this.name = name;
