@@ -11,15 +11,6 @@ import org.springframework.stereotype.Service;
  * This interface contains business logic methods for genres
  */
 @Service
-public class GenreService implements GenreServiceImpl {
-    @Autowired
-    private GenreRepository data;
-
-    @Override
-    public int save(Genre genre) {
-        int res = 0;
-        Genre g = data.save(genre);
-        if (!g.equals(null)) {res=1;}
-        return res;
-    }
+public interface GenreService  {
+    Genre createGenre(Genre genre);
 }
