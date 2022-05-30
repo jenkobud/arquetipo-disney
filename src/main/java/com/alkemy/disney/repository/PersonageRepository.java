@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface PersonageRepository extends JpaRepository<Personage, Long> {
 
-    List<Film> getFilmsByPersonage(Long id);
+    //List<Film> getFilms(Long id);
 }

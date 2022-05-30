@@ -16,5 +16,5 @@ public class PersonageDto implements Serializable {
     private final String imgUrl;
     private final Short age;
     private final Short weight;
-    private final Set<FilmDto> filmsDto;
+    private final Set<FilmBasicDto> filmBasicDtos;
 }

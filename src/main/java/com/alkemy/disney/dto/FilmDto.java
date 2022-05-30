@@ -16,5 +16,5 @@ public class FilmDto implements Serializable {
     private final String type;
     private final short rate;
     private final GenreDto genre;
-    private final Set<PersonageDto> personageDto;
+    private final Set<PersonageBasicDto> personageBasicDtos;
 }

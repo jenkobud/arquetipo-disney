@@ -6,7 +6,7 @@ import com.alkemy.disney.exception.NotImplementedException;
 
 public class GenreMapper {
     public GenreDto createDTO(Genre genre) {
-        throw new NotImplementedException();
+        return new GenreDto(genre.getId(), genre.getName(), genre.getImgUrl());
     }
 
     public Genre createEntity(GenreDto genre) {

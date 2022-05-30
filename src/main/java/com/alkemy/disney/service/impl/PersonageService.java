@@ -16,7 +16,8 @@ public class PersonageService implements IPersonageService {
     @Autowired
     private PersonageRepository personageRepository;
 
-    private final PersonageMapper personageMapper = new PersonageMapper();
+    @Autowired
+    private PersonageMapper personageMapper;
 
     @Override
     public PersonageDto getPersonageById(Long id){

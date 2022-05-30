@@ -1,21 +1,33 @@
 package com.alkemy.disney.mapper;
 
+import com.alkemy.disney.dto.FilmBasicDto;
 import com.alkemy.disney.dto.FilmDto;
 import com.alkemy.disney.dto.PersonageBasicDto;
 import com.alkemy.disney.dto.PersonageDto;
 import com.alkemy.disney.entity.Film;
 import com.alkemy.disney.entity.Personage;
-import org.aspectj.weaver.patterns.PerObject;
-import org.hibernate.validator.constraints.Normalized;
+import com.alkemy.disney.repository.FilmRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.validation.constraints.NotNull;
+import javax.swing.text.html.Option;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public class FilmMapper {
-    private final PersonageMapper personageMapper = new PersonageMapper();
-    private final GenreMapper genreMapper = new GenreMapper();
 
+    @Autowired
+    private FilmRepository filmRepository;
+    @Autowired
+    private PersonageMapper personageMapper;
+
+    @Autowired
+    private GenreMapper genreMapper;
+
+    public FilmBasicDto createBasicDTO(Film film){
+        return new FilmBasicDto(film.getId(), film.getTitle());
+    }
     public FilmDto createDTO(Film film){
 
         return new FilmDto(film.getId(),
@@ -23,35 +35,38 @@ public class FilmMapper {
                 film.getType(),
                 film.getRate(),
                 genreMapper.createDTO(film.getGenre()),
-                getPersonageDtos(film.getPersonages())
+                getPersonageBasicDtos(film.getPersonages())
                 );
     }
 
-    private Set<PersonageDto> getPersonageDtos(Set<Personage> personages) {
-        Set<PersonageDto> personageDtoSet = new HashSet<PersonageDto>();
-        for (Personage pE : personages.stream().toList()){
-            personageDtoSet.add(personageMapper.createDTO(pE));
-        }
-        return personageDtoSet;
+    public Film createEntity(FilmBasicDto filmBasicDto){
+        Optional<Film> filmOptional = filmRepository.findById(filmBasicDto.getId());
+        if(!filmOptional.isPresent()) throw new NullPointerException(); //Change for a more specific Exception BORRAR
+        return filmOptional.get();
     }
-
     public Film createEntity(FilmDto filmDto) {
         Film filmEntity = new Film(
                 filmDto.getTitle(),
                 filmDto.getType(),
                 filmDto.getRate(),
                 genreMapper.createEntity(filmDto.getGenre()),
-                getPersonagesFromPersonageDtoSet(filmDto.getPersonageDto())
+                getPersonagesFromPersonageDtoSet(filmDto.getPersonageBasicDtos())
         );
         filmEntity.setId(filmDto.getId());
         return filmEntity;
     }
 
-    private Set<Personage> getPersonagesFromPersonageDtoSet(Set<PersonageDto> personageDtos){
+    private Set<Personage> getPersonagesFromPersonageDtoSet(Set<PersonageBasicDto> personageBasicDtos){
         Set<Personage> personagesSet = new HashSet<Personage>();
-        for (PersonageDto pDto : personageDtos.stream().toList()){
-            personagesSet.add(personageMapper.createEntity(pDto));
-        }
+        personageBasicDtos.forEach(personageBasicDto -> {
+            personagesSet.add(personageMapper.createEntity(personageBasicDto));
+        });
         return personagesSet;
+    }
+
+    private Set<PersonageBasicDto> getPersonageBasicDtos(Set<Personage> personages) {
+        Set<PersonageBasicDto> personageBasicDtoSet = new HashSet<PersonageBasicDto>();
+        personages.forEach(personage -> personageMapper.createBasicDTO(personage));
+        return personageBasicDtoSet;
     }
 }
