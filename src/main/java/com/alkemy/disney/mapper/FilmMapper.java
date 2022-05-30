@@ -3,15 +3,12 @@ package com.alkemy.disney.mapper;
 import com.alkemy.disney.dto.FilmBasicDto;
 import com.alkemy.disney.dto.FilmDto;
 import com.alkemy.disney.dto.PersonageBasicDto;
-import com.alkemy.disney.dto.PersonageDto;
 import com.alkemy.disney.entity.Film;
 import com.alkemy.disney.entity.Personage;
 import com.alkemy.disney.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.swing.text.html.Option;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -50,7 +47,7 @@ public class FilmMapper {
                 filmDto.getType(),
                 filmDto.getRate(),
                 genreMapper.createEntity(filmDto.getGenre()),
-                getPersonagesFromPersonageDtoSet(filmDto.getPersonageBasicDtos())
+                getPersonagesFromPersonageDtoSet(filmDto.getPersonages())
         );
         filmEntity.setId(filmDto.getId());
         return filmEntity;

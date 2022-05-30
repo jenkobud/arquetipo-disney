@@ -1,7 +1,6 @@
 package com.alkemy.disney.mapper;
 
 import com.alkemy.disney.dto.FilmBasicDto;
-import com.alkemy.disney.dto.FilmDto;
 import com.alkemy.disney.dto.PersonageBasicDto;
 import com.alkemy.disney.dto.PersonageDto;
 import com.alkemy.disney.entity.Film;
@@ -50,7 +49,7 @@ public class PersonageMapper {
                 pDto.getImgUrl(),
                 pDto.getAge(),
                 pDto.getWeight(),
-                getFilmsFromDtos(pDto.getFilmBasicDtos()));
+                getFilmsFromDtos(pDto.getFilms()));
 
         pEntity.setId(pDto.getId());
         return pEntity;

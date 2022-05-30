@@ -23,8 +23,8 @@ public class Film {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "film_personage",
-            joinColumns = {@JoinColumn(name="personage_id")},
-            inverseJoinColumns = {@JoinColumn(name = "film_id")}
+            joinColumns = {@JoinColumn(name="film_id")},
+            inverseJoinColumns = {@JoinColumn(name = "personage_id")}
     )
     protected Set<Personage> personages;
     protected Film() {}
