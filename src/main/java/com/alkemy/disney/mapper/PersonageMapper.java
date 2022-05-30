@@ -29,19 +29,21 @@ public class PersonageMapper {
         return pDto;
     }
     public Personage createEntity(PersonageDto pDto){
+
         Personage pEntity = new Personage(pDto.getName(),
                 pDto.getHistory(),
                 pDto.getImgUrl(),
                 pDto.getAge(),
                 pDto.getWeight(),
                 getFilmsFromPersonajeDto(pDto.getFilmsDto()));
+
         pEntity.setId(pDto.getId());
         return pEntity;
     }
     private Set<Film> getFilmsFromPersonajeDto(Set<FilmDto> filmsDto) {
         Set<Film> films = new HashSet<Film>();
         for (FilmDto filmDto : filmsDto.stream().toList()){
-            films.add(/* llamar a create entity de filmsDto*/null);
+            films.add(filmMapper.createEntity(filmDto));
         }
         return films;
     }

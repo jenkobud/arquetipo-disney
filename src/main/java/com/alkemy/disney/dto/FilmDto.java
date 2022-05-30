@@ -1,10 +1,14 @@
 package com.alkemy.disney.dto;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Set;
 
+@Getter
+@Setter
 @Data
 public class FilmDto implements Serializable {
     private final Long id;
@@ -12,5 +16,5 @@ public class FilmDto implements Serializable {
     private final String type;
     private final short rate;
     private final GenreDto genre;
-    private final Set<PersonageBasicDto> personageDto;
+    private final Set<PersonageDto> personageDto;
 }
