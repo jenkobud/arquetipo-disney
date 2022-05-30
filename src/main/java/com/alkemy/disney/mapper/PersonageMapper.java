@@ -9,8 +9,8 @@ import com.alkemy.disney.entity.Personage;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PersonajeMapper {
-
+public class PersonageMapper {
+    public final FilmMapper filmMapper = new FilmMapper();
     public PersonageBasicDto createBasicDto(Personage pEntity){
         return (new PersonageBasicDto(pEntity.getId(), pEntity.getName(), pEntity.getImgUrl()));
     }
@@ -48,7 +48,7 @@ public class PersonajeMapper {
     private Set<FilmDto> getFilmDtosOfPersonage(Set<Film> films){
         Set<FilmDto> filmDtos = new HashSet<FilmDto>();
         for (Film film : films.stream().toList()){
-            filmDtos.add(/* llamar a create DTO de filmsDto*/null);
+            filmDtos.add(filmMapper.createDTO(film));
         }
         return filmDtos;
     }
