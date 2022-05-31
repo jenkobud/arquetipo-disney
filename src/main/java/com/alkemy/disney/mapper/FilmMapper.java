@@ -9,6 +9,7 @@ import com.alkemy.disney.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
 
@@ -38,7 +39,7 @@ public class FilmMapper {
 
     public Film createEntity(FilmBasicDto filmBasicDto){
         Optional<Film> filmOptional = filmRepository.findById(filmBasicDto.getId());
-        if(!filmOptional.isPresent()) throw new NullPointerException(); //Change for a more specific Exception BORRAR
+        if(!filmOptional.isPresent()) throw new NoSuchElementException();
         return filmOptional.get();
     }
     public Film createEntity(FilmDto filmDto) {

@@ -9,6 +9,7 @@ import com.alkemy.disney.repository.PersonageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
 
@@ -39,7 +40,7 @@ public class PersonageMapper {
 
     public Personage createEntity(PersonageBasicDto pBasicDto){
         Optional<Personage> personageOptional = personageRepository.findById(pBasicDto.getId());
-        if(!personageOptional.isPresent()) throw new NullPointerException(); //Change to a more specific Exception BORRAR
+        if(!personageOptional.isPresent()) throw new NoSuchElementException();
         return personageOptional.get();
     }
     public Personage createEntity(PersonageDto pDto){
