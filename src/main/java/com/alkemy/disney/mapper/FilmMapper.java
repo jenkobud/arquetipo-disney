@@ -63,7 +63,7 @@ public class FilmMapper {
 
     private Set<PersonageBasicDto> getPersonageBasicDtos(Set<Personage> personages) {
         Set<PersonageBasicDto> personageBasicDtoSet = new HashSet<PersonageBasicDto>();
-        personages.forEach(personage -> personageMapper.createBasicDTO(personage));
+        personages.forEach(personage -> personageBasicDtoSet.add(personageMapper.createBasicDTO(personage)));
         return personageBasicDtoSet;
     }
 }

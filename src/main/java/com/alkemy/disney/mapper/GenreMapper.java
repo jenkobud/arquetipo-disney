@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
+import java.util.Optional;
+
 public class GenreMapper {
     @Autowired
     private GenreRepository genreRepository;
@@ -15,9 +17,13 @@ public class GenreMapper {
         return new GenreDto(genre.getId(), genre.getName(), genre.getImgUrl());
     }
 
+<<<<<<< HEAD
     public Genre createEntity(GenreDto genreDto) {
         Optional<Genre> genreOptional = genreRepository.findById(genreDto.getId());
         if(!genreOptional.isPresent()) throw new NullPointerException();
         return genreOptional.get();
     }
+=======
+    public Genre createEntity(GenreDto genre) {throw new NotImplementedException();}
+>>>>>>> 5da8210c3567c2beeca91c73e4e9973db360e326
 }

@@ -22,7 +22,38 @@ public class PersonageService implements IPersonageService {
     @Autowired
     private PersonageMapper personageMapper;
 
+    @Override
+    public PersonageDto save(PersonageDto personageDto){
+        Personage personageEntity = personageMapper.createEntity(personageDto);
+        Personage personageSaved = personageRepository.save(personageEntity);
+        PersonageDto personageResult = personageMapper.createDTO(personageSaved);
+        return personageResult;
+    }
 
+    @Override
+    public PersonageDto delete(Long id){
+        Personage personage = personageRepository.getById(id);
+        personageRepository.deleteById(id);
+        PersonageDto personageDeleted = personageMapper.createDTO(personage);
+        return personageDeleted;
+    }
+
+    public PersonageDto update(Long id, PersonageDto personage){
+        Optional<Personage> personageEntity = personageRepository.findById(id);
+        Personage personageToUpdate = personageEntity.get();
+
+        personageToUpdate.setId(personage.getId());
+        personageToUpdate.setName(personage.getName());
+        personageToUpdate.setAge(personage.getAge());
+        personageToUpdate.setHistory(personage.getHistory());
+        personageToUpdate.setImgUrl(personage.getImgUrl());
+        personageToUpdate.setWeight(personage.getWeight());
+
+        PersonageDto newPersonage = personageMapper.createDTO(personageToUpdate);
+
+        return newPersonage;
+
+    }
     @Override
     public List<PersonageBasicDto> getPersonages(){
         List<Personage> personages = personageRepository.findAll();
