@@ -25,7 +25,7 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "localhost:8080/characters/2",
 			"request": {
 				"method": "GET",
 				"header": [],
