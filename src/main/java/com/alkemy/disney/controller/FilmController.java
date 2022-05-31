@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 import java.util.List;
 
 @Controller
@@ -37,6 +38,7 @@ public class FilmController {
     public void deleteFilm(@PathVariable Long id) {
         filmsService.deleteFilm(id);
     }
+
     @GetMapping
     @ResponseBody
     public ResponseEntity<List<FilmBasicDto>> getFilms(){
