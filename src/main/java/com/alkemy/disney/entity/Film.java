@@ -47,10 +47,11 @@ public class Film {
     protected Set<Personage> personages;
     protected Film() {}
 
-    public Film(String title, String type, short rate, Genre genre) {
+    public Film(String title, String type, short rate, Genre genre, Set<Personage> personages) {
         this.title = title;
         this.type = type;
         this.rate = rate;
         this.genre = genre;
+        this.personages = personages;
     }
 }
