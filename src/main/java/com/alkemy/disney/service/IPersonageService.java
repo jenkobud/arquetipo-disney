@@ -8,7 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 public interface IPersonageService {
-    public PersonageDto getPersonageById(Long id);
 
+    PersonageDto save(PersonageDto personageDto);
+
+    PersonageDto delete(Long id);
+
+    PersonageDto update(Long id, PersonageDto personage);
+    public PersonageDto getPersonageById(Long id);
     public List<PersonageBasicDto> getPersonages();
 }
