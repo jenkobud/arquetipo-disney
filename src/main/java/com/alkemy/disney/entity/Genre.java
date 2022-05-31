@@ -23,7 +23,7 @@ public class Genre {
             })
     protected Set<Film> films;
 
-    protected Genre() {}
+    public Genre() {}
 
     public Genre(String name, String imgUrl, Set<Film> films) {
         this.name = name;
