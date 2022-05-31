@@ -1,9 +1,7 @@
 package com.alkemy.disney.mapper;
 
 import com.alkemy.disney.dto.GenreDto;
-import com.alkemy.disney.entity.Film;
 import com.alkemy.disney.entity.Genre;
-import com.alkemy.disney.exception.NotImplementedException;
 import com.alkemy.disney.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,10 +15,9 @@ public class GenreMapper {
         return new GenreDto(genre.getId(), genre.getName(), genre.getImgUrl());
     }
 
-    public Genre createEntity(GenreDto genre) {
-
-        Optional<Genre> genreOptional = genreRepository.findById(GenreDto.getId());
-        if(!genreOptional.isPresent()) throw new NullPointerException(); //TODO Change for a more specific exception
+    public Genre createEntity(GenreDto genreDto) {
+        Optional<Genre> genreOptional = genreRepository.findById(genreDto.getId());
+        if(!genreOptional.isPresent()) throw new NullPointerException();
         return genreOptional.get();
     }
 }
