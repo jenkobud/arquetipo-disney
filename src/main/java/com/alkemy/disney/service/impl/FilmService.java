@@ -1,5 +1,9 @@
 package com.alkemy.disney.service.impl;
 
+<<<<<<< HEAD
+=======
+import com.alkemy.disney.dto.FilmBasicDto;
+>>>>>>> 9109e66afecc3db08e4638624fe191c4917a4efb
 import com.alkemy.disney.dto.FilmDto;
 import com.alkemy.disney.dto.PersonageDto;
 import com.alkemy.disney.entity.Film;
@@ -12,6 +16,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> 9109e66afecc3db08e4638624fe191c4917a4efb
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -30,4 +39,15 @@ public class FilmService implements IFilmService {
         if(!pFilm.isPresent()) throw new NoSuchElementException();
         return filmMapper.createDTO(pFilm.get());
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public List<FilmBasicDto> getFilms() {
+        List<Film> films = filmRepository.findAll();
+        List<FilmBasicDto> filmBasicDtos = new ArrayList<>();
+        films.forEach(film -> filmBasicDtos.add(filmMapper.createBasicDTO(film)));
+        return filmBasicDtos;
+    }
+>>>>>>> 9109e66afecc3db08e4638624fe191c4917a4efb
 }
