@@ -9,9 +9,9 @@ import java.io.Serializable;
 public class GenreDto implements Serializable {
     @NotNull
     private final Long id;
-    @NotBlank(message = "This field can't be null")
+    @NotBlank(message = "This field can't be blank")
     private final String name;
-    @NotBlank(message = "This field can't be null")
+    @NotBlank(message = "This field can't be blank")
     private final String imgUrl;
 
     public GenreDto(Long id, String name, String imgUrl) {
