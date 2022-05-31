@@ -9,7 +9,9 @@ import com.alkemy.disney.service.FilmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -37,5 +39,20 @@ public class FilmsServiceImpl implements FilmsService {
     @Override
     public void deleteFilm(Long id) {
         filmRepository.deleteById(id);
+    }
+
+    @Override
+    public FilmDto getFilmById(Long id) {
+        Optional<Film> pFilm = filmRepository.findById(id);
+        if(!pFilm.isPresent()) throw new NoSuchElementException();
+        return filmMapper.createDTO(pFilm.get());
+    }
+
+    @Override
+    public List<FilmBasicDto> getFilms() {
+        List<Film> films = filmRepository.findAll();
+        List<FilmBasicDto> filmBasicDtos = new ArrayList<>();
+        films.forEach(film -> filmBasicDtos.add(filmMapper.createBasicDTO(film)));
+        return filmBasicDtos;
     }
 }

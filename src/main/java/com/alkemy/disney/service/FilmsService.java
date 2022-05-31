@@ -11,4 +11,6 @@ public interface FilmsService {
     FilmDto createFilm(Film film);
     FilmBasicDto updateFilm(Film film);
     void deleteFilm(Long id);
+    FilmDto getFilmById(Long id);
+    List<FilmBasicDto> getFilms();
 }
