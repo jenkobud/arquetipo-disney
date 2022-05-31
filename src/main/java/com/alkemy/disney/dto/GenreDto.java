@@ -7,11 +7,11 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 @Data
 public class GenreDto implements Serializable {
-    @NotNull
+    @NotNull(message = "Id can't be null")
     private final Long id;
-    @NotBlank(message = "This field can't be blank")
+    @NotBlank(message = "Name can't be blank")
     private final String name;
-    @NotBlank(message = "This field can't be blank")
+    @NotBlank(message = "Image url can't be blank")
     private final String imgUrl;
 
     public GenreDto(Long id, String name, String imgUrl) {
