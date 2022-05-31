@@ -23,16 +23,17 @@ public class Film {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "film_personage",
-            joinColumns = {@JoinColumn(name="personage_id")},
-            inverseJoinColumns = {@JoinColumn(name = "film_id")}
+            joinColumns = {@JoinColumn(name="film_id")},
+            inverseJoinColumns = {@JoinColumn(name = "personage_id")}
     )
     protected Set<Personage> personages;
     protected Film() {}
 
-    public Film(String title, String type, short rate, Genre genre) {
+    public Film(String title, String type, short rate, Genre genre, Set<Personage> personages) {
         this.title = title;
         this.type = type;
         this.rate = rate;
         this.genre = genre;
+        this.personages = personages;
     }
 }
