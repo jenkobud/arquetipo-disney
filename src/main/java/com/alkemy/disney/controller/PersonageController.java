@@ -2,20 +2,21 @@ package com.alkemy.disney.controller;
 
 import com.alkemy.disney.dto.PersonageBasicDto;
 import com.alkemy.disney.dto.PersonageDto;
-import com.alkemy.disney.service.IPersonageService;
+import com.alkemy.disney.service.PersonageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 @RequestMapping("/characters")
 public class PersonageController {
     @Autowired
-    private IPersonageService personageService;
+    private PersonageService personageService;
 
 
     @GetMapping
@@ -31,13 +32,13 @@ public class PersonageController {
     }
 
     @PostMapping
-    public ResponseEntity<PersonageDto> save(@RequestBody PersonageDto personage){
+    public ResponseEntity<PersonageDto> save(@Valid @RequestBody PersonageDto personage){
         PersonageDto savedPersonage = personageService.save(personage);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPersonage);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PersonageDto> update(@PathVariable Long id, @RequestBody PersonageDto personage){
+    public ResponseEntity<PersonageDto> update(@Valid @PathVariable Long id, @RequestBody PersonageDto personage){
         PersonageDto newPersonage = personageService.update(id, personage);
         return ResponseEntity.ok().body(newPersonage);
     }

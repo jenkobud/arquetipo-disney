@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class ErrorResponse {
+
+    private final Boolean error = true; //Only for JSON visual purposes..
     private HttpStatus status;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime timeStamp;
@@ -19,10 +21,12 @@ public class ErrorResponse {
     }
 
     public ErrorResponse(HttpStatus status) {
+        this.timeStamp = LocalDateTime.now();
         this.status = status;
     }
 
     public ErrorResponse(HttpStatus status, String message) {
+        this.timeStamp = LocalDateTime.now();
         this.status = status;
         this.message = message;
     }
