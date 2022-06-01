@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -17,15 +15,15 @@ import java.util.Set;
 public class FilmDto implements Serializable {
     @NotNull(message = ErrorMessage.ID_NOT_NULL)
     private final Long id;
-    @NotBlank(message = ErrorMessage.ATRIBUTE_NOT_BLANK)
+    @NotBlank( message = ErrorMessage.ATRIBUTE_NOT_BLANK )
     private final String title;
     @NotBlank(message = ErrorMessage.ATRIBUTE_NOT_BLANK)
     private final String type;
-    @Size(min = 0, max = 5)
+    @Min(value = 0, message = ErrorMessage.RATE_RANGE)
+    @Max(value = 10, message = ErrorMessage.RATE_RANGE)
     private final short rate;
     @NotNull(message = ErrorMessage.ATRIBUTE_NOT_NULL)
     private final GenreDto genre;
-    @NotNull(message = ErrorMessage.ATRIBUTE_NOT_NULL)
-    @Size(min = 1)
+    @NotEmpty(message = ErrorMessage.ATRIBUTE_NOT_EMPTY)
     private final Set<PersonageBasicDto> personages;
 }

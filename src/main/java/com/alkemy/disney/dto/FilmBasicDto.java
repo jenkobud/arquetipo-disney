@@ -11,6 +11,6 @@ import java.io.Serializable;
 public class FilmBasicDto implements Serializable {
     @NotNull(message = ErrorMessage.ID_NOT_NULL)
     private final Long id;
-    @NotBlank(message = ErrorMessage.ATRIBUTE_NOT_BLANK)
+    @NotBlank( message = ErrorMessage.ATRIBUTE_NOT_BLANK )
     private final String title;
 }

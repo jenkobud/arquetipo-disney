@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -13,6 +12,7 @@ import java.util.Set;
 @Setter
 @Data
 public class PersonageDto implements Serializable {
+
     @NotNull(message = ErrorMessage.ID_NOT_NULL)
     private final Long id;
     @NotBlank(message = ErrorMessage.ATRIBUTE_NOT_BLANK)
