@@ -1,9 +1,7 @@
 package com.alkemy.disney.controller;
 
 import com.alkemy.disney.dto.GenreDto;
-import com.alkemy.disney.entity.Genre;
 import com.alkemy.disney.service.GenreService;
-import com.alkemy.disney.service.impl.GenreServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +24,8 @@ public class GenreController {
     }
 
     @PostMapping
-    public ResponseEntity<GenreDto> createGenre(@Valid @RequestBody Genre genre){
-        GenreDto genreDto = genreService.createGenre(genre);
-        return new ResponseEntity<>(genreDto, HttpStatus.OK);
+    public ResponseEntity<GenreDto> createGenre(@Valid @RequestBody GenreDto genreDto){
+        GenreDto genreDtoRes = genreService.createGenre(genreDto);
+        return new ResponseEntity<>(genreDtoRes, HttpStatus.OK);
     }
 }

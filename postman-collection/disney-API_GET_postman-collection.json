@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b3caf446-c59a-4d17-8558-0359c22aa788",
-		"name": "disney-API",
+		"name": "disney-API - GET",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -62,34 +62,6 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/characters/create - Kevin Hart",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Kevin Hart\",\r\n    \"history\": \"Kevin historia\",\r\n    \"imgUrl\": \"https://m.media-amazon.com/images/M/MV5BMTY4OTAxMjkxN15BMl5BanBnXkFtZTgwODg5MzYyMTE@._V1_UY1200_CR84,0,630,1200_AL_.jpg\",\r\n    \"age\":38,\r\n    \"weight\":67,\r\n    \"films\":[\r\n        {\r\n            \"id\": 1,\r\n            \"title\": \"Jumanji\"\r\n        }\r\n        ]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/characters/create",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"characters",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "localhost:8080/films",
 			"request": {
 				"method": "GET",
@@ -140,6 +112,24 @@
 					"path": [
 						"films",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/genres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/genres",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres"
 					]
 				}
 			},

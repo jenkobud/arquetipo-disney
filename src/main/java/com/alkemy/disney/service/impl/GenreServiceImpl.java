@@ -1,15 +1,18 @@
 package com.alkemy.disney.service.impl;
 
 import com.alkemy.disney.dto.GenreDto;
+import com.alkemy.disney.entity.Film;
 import com.alkemy.disney.entity.Genre;
+import com.alkemy.disney.exception.EntityAlreadyExistsException;
+import com.alkemy.disney.exception.ErrorMessage;
 import com.alkemy.disney.mapper.GenreMapper;
 import com.alkemy.disney.repository.GenreRepository;
 import com.alkemy.disney.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 @Service
 public class GenreServiceImpl implements GenreService {
 
@@ -20,17 +23,17 @@ public class GenreServiceImpl implements GenreService {
     private GenreMapper genreMapper;
 
     @Override
-    public GenreDto createGenre(Genre genre) {
-        GenreDto genreDto = genreMapper.createDTO(genre);
-        genreRepository.save(genreMapper.createEntity(genreDto));
+    public GenreDto createGenre(GenreDto genreDto) {
+        if(genreRepository.findById(genreDto.getId()).isPresent()) throw new EntityAlreadyExistsException(ErrorMessage.ENTITY_ALREADY_EXIST);
+        Genre g = genreMapper.createEntity(genreDto);
+        g.setFilms(new HashSet<>());
+        genreRepository.save(g);
         return genreDto;
     }
 
     @Override
     public List<GenreDto> getGenres() {
-        List<Genre> genres = genreRepository.findAll();
-        List<GenreDto> genresDto = new ArrayList<GenreDto>();
-        genres.forEach(genre -> genresDto.add(genreMapper.createDTO(genre)));
-        return genresDto;
+        return (genreMapper.setOfDtos(genreRepository.findAll()).stream().toList());
     }
+
 }

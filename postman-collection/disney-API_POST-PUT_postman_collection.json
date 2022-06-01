@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "67d201f1-0515-4c91-b9bd-b7fff9815475",
+		"name": "disney-API - POST/PUT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/characters",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Scarlet Johansson\",\r\n    \"history\": \"Scarlet history\",\r\n    \"imgUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg/220px-Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg\",\r\n    \"age\":37,\r\n    \"weight\":50,\r\n    \"films\":[]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/characters",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/films",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 4,\r\n        \"title\": \"Shrek 2\",\r\n        \"type\":\"film\",\r\n        \"rate\": 5,\r\n        \"genre\":{\r\n            \"id\":1,\r\n            \"name\":\"drama\",\r\n            \"imgUrl\":\"https://definicion.de/wp-content/uploads/2009/04/drama.png\"\r\n        },\r\n        \"personages\":[\r\n            {\r\n            \"id\": 1,\r\n            \"name\": \"Dwayne Jhonson\",\r\n            \"imgUrl\": \"https://upload.wikimedia.org/wikipedia/commons/f/f1/Dwayne_Johnson_2%2C_2013.jpg\"\r\n        }]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/films",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/films",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"title\": \"Jumanji (2019)\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/films",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/genres",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": 2,\r\n        \"name\": \"comedia\",\r\n        \"imgUrl\": \"https://m.media-amazon.com/images/G/01/seo/siege-lists/best-comedy-audiobooks-social.jpg\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/genres",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -5,17 +5,12 @@ import com.alkemy.disney.dto.PersonageBasicDto;
 import com.alkemy.disney.dto.PersonageDto;
 import com.alkemy.disney.entity.Film;
 import com.alkemy.disney.entity.Personage;
-import com.alkemy.disney.repository.PersonageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 public class PersonageMapper {
 
-    @Autowired
-    PersonageRepository personageRepository;
 
     @Autowired
     private FilmMapper filmMapper;
@@ -37,11 +32,6 @@ public class PersonageMapper {
         return pDto;
     }
 
-    public Personage createEntity(PersonageBasicDto pBasicDto){
-        Optional<Personage> personageOptional = personageRepository.findById(pBasicDto.getId());
-        if(!personageOptional.isPresent()) throw new NullPointerException(); //Change to a more specific Exception BORRAR
-        return personageOptional.get();
-    }
     public Personage createEntity(PersonageDto pDto){
 
         Personage pEntity = new Personage(pDto.getName(),
@@ -49,19 +39,20 @@ public class PersonageMapper {
                 pDto.getImgUrl(),
                 pDto.getAge(),
                 pDto.getWeight(),
-                getFilmsFromDtos(pDto.getFilms()));
+                new HashSet<>());
 
         pEntity.setId(pDto.getId());
         return pEntity;
     }
-    private Set<Film> getFilmsFromDtos(Set<FilmBasicDto> filmsDto) {
-        Set<Film> films = new HashSet<Film>();
-        filmsDto.forEach(filmBasicDto -> films.add(filmMapper.createEntity(filmBasicDto)));
-        return films;
-    }
     private Set<FilmBasicDto> getFilmBasicDtos(Set<Film> films){
-        Set<FilmBasicDto> filmDtos = new HashSet<FilmBasicDto>();
+        Set<FilmBasicDto> filmDtos = new HashSet<>();
         films.forEach(film -> filmDtos.add(filmMapper.createBasicDTO(film)));
         return filmDtos;
+    }
+
+    public Set<PersonageBasicDto> setOfDtos(List<Personage> personages) {
+        Set<PersonageBasicDto> personageBasicDtoHashSet = new HashSet<>();
+        personages.forEach(personage -> personageBasicDtoHashSet.add(createBasicDTO(personage)));
+        return personageBasicDtoHashSet;
     }
 }

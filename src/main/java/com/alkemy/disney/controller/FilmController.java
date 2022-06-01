@@ -2,7 +2,6 @@ package com.alkemy.disney.controller;
 
 import com.alkemy.disney.dto.FilmBasicDto;
 import com.alkemy.disney.dto.FilmDto;
-import com.alkemy.disney.entity.Film;
 import com.alkemy.disney.service.FilmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,13 +21,13 @@ public class FilmController {
     private FilmsService filmsService;
 
     @PostMapping
-    public ResponseEntity<FilmDto> createFilm(@Valid @RequestBody Film film){
-        FilmDto filmDto = filmsService.createFilm(film);
+    public ResponseEntity<FilmDto> createFilm(@Valid @RequestBody FilmDto filmDto){
+        filmsService.createFilm(filmDto);
         return new ResponseEntity<>(filmDto, HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<FilmBasicDto> updateFilm(@Valid @RequestBody Film film){
+    public ResponseEntity<FilmBasicDto> updateFilm(@Valid @RequestBody FilmBasicDto film){
         FilmBasicDto filmBasicDto = filmsService.updateFilm(film);
         return new ResponseEntity<>(filmBasicDto, HttpStatus.ACCEPTED);
     }
@@ -48,7 +47,8 @@ public class FilmController {
     @GetMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity<FilmDto> getFilmById(@Valid @PathVariable("id") Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(filmsService.getFilmById(id));
+        FilmDto filmDto = filmsService.getFilmById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(filmDto);
 
     }
 }

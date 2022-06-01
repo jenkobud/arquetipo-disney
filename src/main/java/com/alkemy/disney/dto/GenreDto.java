@@ -1,5 +1,6 @@
 package com.alkemy.disney.dto;
 
+import com.alkemy.disney.exception.ErrorMessage;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -7,19 +8,12 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 @Data
 public class GenreDto implements Serializable {
-    @NotNull(message = "Id can't be null")
+    @NotNull(message = ErrorMessage.ID_NOT_NULL)
     private final Long id;
-    @NotBlank(message = "Name can't be blank")
+    @NotBlank(message = ErrorMessage.ATRIBUTE_NOT_BLANK)
     private final String name;
-    @NotBlank(message = "Image url can't be blank")
+    @NotBlank(message = ErrorMessage.ATRIBUTE_NOT_BLANK)
     private final String imgUrl;
-
-    public GenreDto(Long id, String name, String imgUrl) {
-        this.id = id;
-        this.name = name;
-        this.imgUrl = imgUrl;
-    }
-
     public Long getId() {
         return id;
     }

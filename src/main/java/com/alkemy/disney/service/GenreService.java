@@ -1,11 +1,6 @@
 package com.alkemy.disney.service;
 
 import com.alkemy.disney.dto.GenreDto;
-import com.alkemy.disney.entity.Genre;
-import com.alkemy.disney.repository.GenreRepository;
-import com.alkemy.disney.service.impl.GenreServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -16,6 +11,6 @@ import java.util.List;
  */
 
 public interface GenreService  {
-    public GenreDto createGenre(Genre genre);
-    public List<GenreDto> getGenres();
+    GenreDto createGenre(GenreDto genre);
+    List<GenreDto> getGenres();
 }

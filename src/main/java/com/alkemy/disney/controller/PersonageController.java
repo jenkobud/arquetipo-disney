@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Controller
@@ -31,19 +30,19 @@ public class PersonageController {
         return personageService.getPersonageById(id);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<PersonageDto> save(@RequestBody PersonageDto personage){
         PersonageDto savedPersonage = personageService.save(personage);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPersonage);
     }
 
-    @PutMapping("/{id}/update")
+    @PutMapping("/{id}")
     public ResponseEntity<PersonageDto> update(@PathVariable Long id, @RequestBody PersonageDto personage){
         PersonageDto newPersonage = personageService.update(id, personage);
         return ResponseEntity.ok().body(newPersonage);
     }
 
-    @DeleteMapping("/{id}/delete")
+    @DeleteMapping("/{id}")
     public ResponseEntity<PersonageDto> delete(@PathVariable long id){
         PersonageDto deletedPersonage = personageService.delete(id);
         return ResponseEntity.ok(deletedPersonage);
