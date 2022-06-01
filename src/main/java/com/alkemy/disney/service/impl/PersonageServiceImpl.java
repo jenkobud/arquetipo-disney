@@ -8,13 +8,13 @@ import com.alkemy.disney.exception.ErrorMessage;
 import com.alkemy.disney.exception.NotFoundOnDataBaseException;
 import com.alkemy.disney.mapper.PersonageMapper;
 import com.alkemy.disney.repository.PersonageRepository;
-import com.alkemy.disney.service.IPersonageService;
+import com.alkemy.disney.service.PersonageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PersonageServiceImpl implements IPersonageService {
+public class PersonageServiceImpl implements PersonageService {
 
     @Autowired
     private PersonageRepository personageRepository;
