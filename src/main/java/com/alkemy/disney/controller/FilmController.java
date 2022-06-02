@@ -49,6 +49,11 @@ public class FilmController {
     public ResponseEntity<FilmDto> getFilmById(@Valid @PathVariable("id") Long id){
         FilmDto filmDto = filmsService.getFilmById(id);
         return ResponseEntity.status(HttpStatus.OK).body(filmDto);
+    }
 
+    @DeleteMapping("/{idFilm}/characters/{idCharacter}")
+    public ResponseEntity<FilmDto> removePersonageFromMovie (@PathVariable Long idFilm, @PathVariable Long idCharacter){
+        FilmDto filmDto = filmsService.removePersonageFromMovie(idFilm, idCharacter);
+        return ResponseEntity.status(HttpStatus.OK).body(filmDto);
     }
 }
