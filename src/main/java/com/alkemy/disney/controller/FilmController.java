@@ -51,8 +51,7 @@ public class FilmController {
         return ResponseEntity.status(HttpStatus.OK).body(filmDto);
     }
 
-    @DeleteMapping
-    @RequestMapping("/{idMovie}/characters/{idCharacter}")
+    @DeleteMapping("/{idMovie}/characters/{idCharacter}")
     public ResponseEntity<FilmDto> removePersonageFromMovie (@PathVariable Long idMovie, @PathVariable Long idPersonage){
         FilmDto filmDto = filmsService.removePersonageFromMovie(idMovie, idPersonage);
         return ResponseEntity.status(HttpStatus.OK).body(filmDto);
