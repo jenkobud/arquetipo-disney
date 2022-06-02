@@ -49,6 +49,11 @@ public class FilmController {
     public ResponseEntity<FilmDto> getFilmById(@Valid @PathVariable("id") Long id){
         FilmDto filmDto = filmsService.getFilmById(id);
         return ResponseEntity.status(HttpStatus.OK).body(filmDto);
+    }
 
+    @PostMapping(value = "/{idFilm}/characters/{idCharacter}")
+    public ResponseEntity<FilmDto> createPersonageToFilm(@PathVariable("idFilm") long idFilm, @PathVariable("idCharacter") long idCharacter){
+        FilmDto filmDto = filmsService.addPersonage(idFilm, idCharacter);
+        return new ResponseEntity<>(filmDto, HttpStatus.CREATED);
     }
 }
