@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/film")
+@RequestMapping("/films")
 public class FilmController {
 
     @Autowired
