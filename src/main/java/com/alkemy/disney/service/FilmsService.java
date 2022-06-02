@@ -11,5 +11,5 @@ public interface FilmsService {
     void deleteFilm(Long id);
     FilmDto getFilmById(Long id);
     List<FilmBasicDto> getFilms();
-    FilmDto removePersonageFromMovie(Long idMovie, Long idPersonage);
+    FilmDto removePersonageFromMovie(Long idFilm, Long idPersonage);
 }

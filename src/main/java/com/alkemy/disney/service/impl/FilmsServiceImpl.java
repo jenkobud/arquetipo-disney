@@ -81,8 +81,8 @@ public class FilmsServiceImpl implements FilmsService {
     }
 
     @Override
-    public FilmDto removePersonageFromMovie(Long idMovie, Long idPersonage){
-        Film film = filmRepository.findById(idMovie).orElseThrow(() -> new NotFoundOnDataBaseException(ErrorMessage.NO_RETRIEVE_FROM_DB));
+    public FilmDto removePersonageFromMovie(Long idFilm, Long idPersonage){
+        Film film = filmRepository.findById(idFilm).orElseThrow(() -> new NotFoundOnDataBaseException(ErrorMessage.NO_RETRIEVE_FROM_DB));
         Personage personageToRemove = personageRepository.findById(idPersonage).orElseThrow(() -> new NotFoundOnDataBaseException(ErrorMessage.NO_RETRIEVE_FROM_DB));
         film.removePersonage(personageToRemove);
         filmRepository.save(film);

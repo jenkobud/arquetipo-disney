@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/movies")
+@RequestMapping("/film")
 public class FilmController {
 
     @Autowired
@@ -51,9 +51,9 @@ public class FilmController {
         return ResponseEntity.status(HttpStatus.OK).body(filmDto);
     }
 
-    @DeleteMapping("/{idMovie}/characters/{idCharacter}")
-    public ResponseEntity<FilmDto> removePersonageFromMovie (@PathVariable Long idMovie, @PathVariable Long idPersonage){
-        FilmDto filmDto = filmsService.removePersonageFromMovie(idMovie, idPersonage);
+    @DeleteMapping("/{idFilm}/characters/{idCharacter}")
+    public ResponseEntity<FilmDto> removePersonageFromMovie (@PathVariable Long idFilm, @PathVariable Long idPersonage){
+        FilmDto filmDto = filmsService.removePersonageFromMovie(idFilm, idPersonage);
         return ResponseEntity.status(HttpStatus.OK).body(filmDto);
     }
 }
