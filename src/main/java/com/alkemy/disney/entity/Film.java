@@ -38,7 +38,7 @@ public class Film {
     protected Set<Personage> personages;
 
     public void removePersonage(Personage personageToDelete){
-        personages.remove(personageToDelete);
+        this.personages.remove(personageToDelete);
     }
     public Film() {}
 }
