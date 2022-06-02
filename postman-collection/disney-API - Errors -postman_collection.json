@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "e4343102-fe34-421b-b055-8e036078fa7d",
+		"name": "disney-API - Errors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NO id registered - localhost:8080/films/190190",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/films/190190",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"films",
+						"190190"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NO id registered - localhost:8080/films/190190 Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/films/190190",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"films",
+						"190190"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST without ID & FILMS - localhost:8080/characters",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Scarlet Johansson\",\r\n    \"history\": \"Scarlet history\",\r\n    \"imgUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg/220px-Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg\",\r\n    \"age\":37,\r\n    \"weight\":50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/characters",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

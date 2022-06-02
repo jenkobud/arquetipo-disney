@@ -46,7 +46,7 @@ public class FilmController {
 
     @GetMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity<FilmDto> getFilmById(@Valid @PathVariable("id") Long id){
+    public ResponseEntity<FilmDto> getFilmById(@PathVariable("id") Long id){
         FilmDto filmDto = filmsService.getFilmById(id);
         return ResponseEntity.status(HttpStatus.OK).body(filmDto);
 

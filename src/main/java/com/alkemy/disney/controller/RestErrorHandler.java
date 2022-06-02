@@ -12,20 +12,31 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
-@ControllerAdvice
+@RestControllerAdvice
 public class RestErrorHandler extends ResponseEntityExceptionHandler {
 
+    @Override
+    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        return buildResponseEntity(new ErrorResponse(status, ex.getMessage()));
+    }
+    /* Handles 404 errors*/
+    @Override
+    protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request){
+        return buildResponseEntity(new ErrorResponse(status, "ex.getMessage()"));
+    }
+
+
     @ExceptionHandler( value = {Throwable.class})
-    @ResponseStatus(value = HttpStatus.NOT_FOUND )
-    public ResponseEntity<Object> handleThrowable(Throwable ex, WebRequest req){
-        //handleException
-        ErrorResponse res = new ErrorResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR )
+    public ResponseEntity<Object> handleThrowable(Throwable ex, HttpHeaders headers, HttpStatus status, WebRequest req){
+        ErrorResponse res = new ErrorResponse(status, String.format("%s", ex.getLocalizedMessage()));
         return buildResponseEntity(res);
     }
 
@@ -40,11 +51,6 @@ public class RestErrorHandler extends ResponseEntityExceptionHandler {
         }
         ErrorResponse er = new ErrorResponse(status, errorMsg.toString());
         return buildResponseEntity(er);
-    }
-    /* Handles 404 errors*/
-    @Override
-    protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request){
-        return buildResponseEntity(new ErrorResponse(status, ex.getMessage()));
     }
 
 
