@@ -1,8 +1,6 @@
 package com.alkemy.disney;
 
 
-import com.alkemy.disney.entity.Film;
-import com.alkemy.disney.entity.Genre;
 import com.alkemy.disney.mapper.FilmMapper;
 import com.alkemy.disney.mapper.GenreMapper;
 import com.alkemy.disney.mapper.PersonageMapper;
