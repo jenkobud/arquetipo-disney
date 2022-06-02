@@ -36,5 +36,9 @@ public class Film {
             inverseJoinColumns = {@JoinColumn(name = "personage_id")}
     )
     protected Set<Personage> personages;
+
+    public void removePersonage(Personage personageToDelete){
+        personages.remove(personageToDelete);
+    }
     public Film() {}
 }
