@@ -25,6 +25,12 @@ public class FilmController {
         filmsService.createFilm(filmDto);
         return new ResponseEntity<>(filmDto, HttpStatus.CREATED);
     }
+    
+    @PostMapping(value = "/{idFilm}/characters/{idCharacter}")
+    public ResponseEntity<FilmDto> createPersonageToFilm(@PathVariable("idFilm") long idFilm, @PathVariable("idCharacter") long idCharacter){
+        FilmDto filmDto = filmsService.addPersonage(idFilm, idCharacter);
+        return new ResponseEntity<>(filmDto, HttpStatus.CREATED);
+    }
 
     @PutMapping
     public ResponseEntity<FilmBasicDto> updateFilm(@Valid @RequestBody FilmBasicDto film){
@@ -37,6 +43,12 @@ public class FilmController {
     public void deleteFilm(@PathVariable Long id) {
         filmsService.deleteFilm(id);
     }
+    
+    @DeleteMapping("/{idFilm}/characters/{idCharacter}")
+    public ResponseEntity<FilmDto> removePersonageFromMovie (@PathVariable Long idFilm, @PathVariable Long idCharacter){
+        FilmDto filmDto = filmsService.removePersonageFromMovie(idFilm, idCharacter);
+        return ResponseEntity.status(HttpStatus.OK).body(filmDto);
+    }
 
     @GetMapping
     @ResponseBody
@@ -48,12 +60,6 @@ public class FilmController {
     @ResponseBody
     public ResponseEntity<FilmDto> getFilmById(@Valid @PathVariable("id") Long id){
         FilmDto filmDto = filmsService.getFilmById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(filmDto);
-    }
-
-    @DeleteMapping("/{idFilm}/characters/{idCharacter}")
-    public ResponseEntity<FilmDto> removePersonageFromMovie (@PathVariable Long idFilm, @PathVariable Long idCharacter){
-        FilmDto filmDto = filmsService.removePersonageFromMovie(idFilm, idCharacter);
         return ResponseEntity.status(HttpStatus.OK).body(filmDto);
     }
 }
