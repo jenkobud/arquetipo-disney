@@ -95,7 +95,14 @@ public class FilmsServiceImpl implements FilmsService {
 
         // update database
         filmRepository.save(film);
-
+        return filmMapper.createDTO(film);
+    }
+  
+    public FilmDto removePersonageFromMovie(Long idFilm, Long idPersonage){
+        Film film = filmRepository.findById(idFilm).orElseThrow(() -> new NotFoundOnDataBaseException(ErrorMessage.NO_RETRIEVE_FROM_DB));
+        Personage personageToRemove = personageRepository.findById(idPersonage).orElseThrow(() -> new NotFoundOnDataBaseException(ErrorMessage.NO_RETRIEVE_FROM_DB));
+        film.removePersonage(personageToRemove);
+        filmRepository.save(film);
         return filmMapper.createDTO(film);
     }
 }

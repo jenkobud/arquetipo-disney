@@ -38,6 +38,10 @@ public class Film {
             inverseJoinColumns = {@JoinColumn(name = "personage_id")}
     )
     protected Set<Personage> personages;
+
+    public void removePersonage(Personage personageToDelete){
+        this.personages.remove(personageToDelete);
+    }
     public Film() {}
 
     public void addPersonage(Personage personage){
