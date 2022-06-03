@@ -41,11 +41,12 @@ public class FilmController {
     @DeleteMapping
     @RequestMapping("/{id}")
     public void deleteFilm(@PathVariable Long id) {
+
         filmsService.deleteFilm(id);
     }
     
     @DeleteMapping("/{idFilm}/characters/{idCharacter}")
-    public ResponseEntity<FilmDto> removePersonageFromMovie (@PathVariable Long idFilm, @PathVariable Long idCharacter){
+    public ResponseEntity<FilmDto> removePersonageFromMovie (@PathVariable("idFilm") Long idFilm, @PathVariable("idCharacter") Long idCharacter){
         FilmDto filmDto = filmsService.removePersonageFromMovie(idFilm, idCharacter);
         return ResponseEntity.status(HttpStatus.OK).body(filmDto);
     }

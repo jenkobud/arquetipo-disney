@@ -38,7 +38,7 @@ public class PersonageController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PersonageDto> update(@PathVariable Long id, @RequestBody PersonageDto personage){
+    public ResponseEntity<PersonageDto> update(@PathVariable Long id, @Valid @RequestBody PersonageDto personage){
         PersonageDto newPersonage = personageService.update(id, personage);
         return ResponseEntity.ok().body(newPersonage);
     }
@@ -46,6 +46,6 @@ public class PersonageController {
     @DeleteMapping("/{id}")
     public ResponseEntity<PersonageDto> delete(@PathVariable long id){
         PersonageDto deletedPersonage = personageService.delete(id);
-        return ResponseEntity.ok(deletedPersonage);
+        return ResponseEntity.ok().body(deletedPersonage);
     }
 }
