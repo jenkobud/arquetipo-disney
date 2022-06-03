@@ -6,13 +6,13 @@
 	},
 	"item": [
 		{
-			"name": "localhost:8080/characters",
+			"name": "disney-api/characters",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\":9090,\r\n    \"name\":\"Scarlet Johansson\",\r\n    \"history\": \"Scarlet history\",\r\n    \"imgUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg/220px-Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg\",\r\n    \"age\":37,\r\n    \"weight\":50,\r\n    \"films\":[]\r\n}",
+					"raw": "{\r\n    \"id\":9090,\r\n    \"name\":\"Arnold Schwarzeneggern\",\r\n    \"history\": \"I'll be back\",\r\n    \"imgUrl\": \"https://media.revistagq.com/photos/5fa17df0d7a87a4a317ed1fb/16:9/w_2560%2Cc_limit/arnold.jpg\",\r\n    \"age\":74,\r\n    \"weight\":83,\r\n    \"films\":[]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,11 +20,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/characters",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/characters",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"characters"
 					]
@@ -33,7 +35,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/films",
+			"name": "disney-api/films",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -47,11 +49,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/films",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"films"
 					]
@@ -60,7 +64,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/films/1/characters/1",
+			"name": "disney-api/films/1/characters/1",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -74,11 +78,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/films/1/characters/1",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films/1/characters/1",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"films",
 						"1",
@@ -97,7 +103,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/genres",
+			"name": "disney-api/genres",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -111,11 +117,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/genres",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/genres",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"genres"
 					]
@@ -124,13 +132,13 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/films",
+			"name": "disney-api/films",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"id\": 1,\r\n        \"title\": \"Jumanji (2019)\"\r\n}",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"title\": \"Jumanji-(2019)\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -138,11 +146,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/films",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"films"
 					]
@@ -151,13 +161,13 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/characters",
+			"name": "disney-api/characters",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Scarlet Johansson\",\r\n    \"history\": \"Scarlet history\",\r\n    \"imgUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg/220px-Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg\",\r\n    \"age\":37,\r\n    \"weight\":50,\r\n    \"films\":[]\r\n}",
+					"raw": "{\r\n    \"id\":5,\r\n    \"name\":\"Scarlet Johansson\",\r\n    \"history\": \"Scarlet history\",\r\n    \"imgUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg/220px-Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg\",\r\n    \"age\":37,\r\n    \"weight\":50,\r\n    \"films\":[]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -165,11 +175,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/characters",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/characters",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"characters"
 					]

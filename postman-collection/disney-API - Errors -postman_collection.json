@@ -6,16 +6,18 @@
 	},
 	"item": [
 		{
-			"name": "NO id registered - localhost:8080/films/190190",
+			"name": "NO id registered - disney-api/films/190190",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/films/190190",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films/190190",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"films",
 						"190190"
@@ -25,26 +27,57 @@
 			"response": []
 		},
 		{
-			"name": "NO id registered - localhost:8080/films/190190 Copy",
+			"name": "DELETE NON EXISTING FILM - disney-api/films/9090",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/films/190190",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films/9090",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"films",
-						"190190"
+						"9090"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "POST without ID & FILMS - localhost:8080/characters",
+			"name": "title can't be null - disney-api/films",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"title\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films",
+					"protocol": "https",
+					"host": [
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST without ID & FILMS - disney-api/characters",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -58,11 +91,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/characters",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/characters",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"characters"
 					]

@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "localhost:8080/films/4",
+			"name": "disney-api/films/4",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -20,11 +20,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/films/4",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films/4",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"films",
 						"4"

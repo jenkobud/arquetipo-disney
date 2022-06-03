@@ -6,16 +6,18 @@
 	},
 	"item": [
 		{
-			"name": "localhost:8080/characters",
+			"name": "disney-api/characters",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/characters",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/characters",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"characters"
 					]
@@ -24,16 +26,18 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/characters/1",
+			"name": "disney-api/characters/1",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/characters/1",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/characters/1",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"characters",
 						"1"
@@ -43,16 +47,18 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/characters/2",
+			"name": "disney-api/characters/2",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/characters/2",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/characters/2",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"characters",
 						"2"
@@ -62,16 +68,18 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/films",
+			"name": "disney-api/films",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/films",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"films"
 					]
@@ -80,16 +88,18 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/films/1",
+			"name": "disney-api/films/1",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/films/1",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films/1",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"films",
 						"1"
@@ -99,26 +109,28 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/films/2",
+			"name": "disney-api/films/5",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/films/2",
+					"raw": "https://disney-api-rest-alkemy.herokuapp.com/films/5",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"disney-api-rest-alkemy",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
 						"films",
-						"2"
+						"5"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "localhost:8080/genres",
+			"name": "disney-api/genres",
 			"request": {
 				"method": "GET",
 				"header": [],
