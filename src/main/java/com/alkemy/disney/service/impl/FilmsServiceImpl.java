@@ -16,7 +16,10 @@ import com.alkemy.disney.service.FilmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 
 @Service
 public class FilmsServiceImpl implements FilmsService {
@@ -78,5 +81,28 @@ public class FilmsServiceImpl implements FilmsService {
         p.setName(pBDto.getName());
         p.setImgUrl(pBDto.getImgUrl());
         return personageMapper.createDTO(p);
+    }
+
+    @Override
+    public FilmDto addPersonage(long idFilm, long idCharacter) {
+        Personage personage = personageRepository.findById(idCharacter)
+                .orElseThrow(() -> new NotFoundOnDataBaseException(ErrorMessage.NO_RETRIEVE_FROM_DB));
+
+        Film film = filmRepository.findById(idFilm)
+                .orElseThrow(() -> new NotFoundOnDataBaseException(ErrorMessage.NO_RETRIEVE_FROM_DB));
+
+        film.addPersonage(personage);
+
+        // update database
+        filmRepository.save(film);
+        return filmMapper.createDTO(film);
+    }
+  
+    public FilmDto removePersonageFromMovie(Long idFilm, Long idPersonage){
+        Film film = filmRepository.findById(idFilm).orElseThrow(() -> new NotFoundOnDataBaseException(ErrorMessage.NO_RETRIEVE_FROM_DB));
+        Personage personageToRemove = personageRepository.findById(idPersonage).orElseThrow(() -> new NotFoundOnDataBaseException(ErrorMessage.NO_RETRIEVE_FROM_DB));
+        film.removePersonage(personageToRemove);
+        filmRepository.save(film);
+        return filmMapper.createDTO(film);
     }
 }

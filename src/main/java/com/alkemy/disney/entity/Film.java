@@ -1,5 +1,7 @@
 package com.alkemy.disney.entity;
 
+import com.alkemy.disney.exception.EntityAlreadyExistsException;
+import com.alkemy.disney.exception.ErrorMessage;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
@@ -36,5 +38,16 @@ public class Film {
             inverseJoinColumns = {@JoinColumn(name = "personage_id")}
     )
     protected Set<Personage> personages;
+
+    public void removePersonage(Personage personageToDelete){
+        this.personages.remove(personageToDelete);
+    }
     public Film() {}
+
+    public void addPersonage(Personage personage){
+        if (this.personages.contains(personage)){
+            throw new EntityAlreadyExistsException(ErrorMessage.ENTITY_ALREADY_EXIST);
+        }
+        this.personages.add(personage);
+    }
 }
