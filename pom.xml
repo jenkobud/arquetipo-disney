@@ -11,8 +11,8 @@
 	<groupId>com.alkemy.disney</groupId>
 	<artifactId>disney</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>disney</name>
-	<description>Demo project for Spring Boot</description>
+	<name>disney-api-rest-alkemy</name>
+	<description>Training REST API project</description>
 	<properties>
 		<java.version>16</java.version>
 	</properties>
