@@ -8,8 +8,8 @@
 		<version>2.5.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.alkemy.disney</groupId>
-	<artifactId>disney</artifactId>
+	<groupId>com.alkemy.disney-api-rest-alkemy</groupId>
+	<artifactId>disney-api-rest-alkemy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>disney-api-rest-alkemy</name>
 	<description>Training REST API project</description>
