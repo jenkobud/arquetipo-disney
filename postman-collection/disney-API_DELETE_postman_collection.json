@@ -6,10 +6,30 @@
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "localhost:8080/films/4",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 4,\r\n        \"title\": \"Shrek 2\",\r\n        \"type\":\"film\",\r\n        \"rate\": 5,\r\n        \"genre\":{\r\n            \"id\":1,\r\n            \"name\":\"drama\",\r\n            \"imgUrl\":\"https://definicion.de/wp-content/uploads/2009/04/drama.png\"\r\n        },\r\n        \"personages\":[\r\n            {\r\n            \"id\": 1,\r\n            \"name\": \"Dwayne Jhonson\",\r\n            \"imgUrl\": \"https://upload.wikimedia.org/wikipedia/commons/f/f1/Dwayne_Johnson_2%2C_2013.jpg\"\r\n        }]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/films/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"films",
+						"4"
+					]
+				}
 			},
 			"response": []
 		}
