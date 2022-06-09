@@ -27,7 +27,7 @@ import java.util.Set;
 @RestControllerAdvice
 public class RestErrorHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler( Exception.class)
+    @ExceptionHandler( Throwable.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR )
     public ResponseEntity<Object> handleThrowable(Throwable ex, HttpHeaders headers, HttpStatus status, WebRequest req){
         ErrorResponse res = new ErrorResponse(status, String.format("%s", ex.getMessage()));

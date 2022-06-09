@@ -25,7 +25,7 @@ public class PersonageDto implements Serializable {
     @Max(value = 150, message = ErrorMessage.AGE_MAX)
     private final Short age;
     @Positive(message = ErrorMessage.WEIGHT_MIN)
-    @Max(value=400 ,message = ErrorMessage.AGE_MAX )
+    @Max(value=400 ,message = ErrorMessage.WEIGHT_MAX )
     private final Short weight;
     @NotNull( message = ErrorMessage.ATRIBUTE_NOT_NULL)
     private final Set<FilmBasicDto> films;

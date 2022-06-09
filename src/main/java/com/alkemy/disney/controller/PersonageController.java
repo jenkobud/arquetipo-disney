@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/characters")
 public class PersonageController {
     @Autowired
@@ -31,13 +31,16 @@ public class PersonageController {
         return personageService.getPersonageById(id);
     }
 
+
     @PostMapping
+    //@PostMapping(/create) //<- NO REST
     public ResponseEntity<PersonageDto> save(@Valid @RequestBody PersonageDto personage){
         PersonageDto savedPersonage = personageService.save(personage);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPersonage);
     }
 
     @PutMapping("/{id}")
+    //@PutMapping("modify/{id}") //<- NO REST
     public ResponseEntity<PersonageDto> update(@PathVariable Long id, @Valid @RequestBody PersonageDto personage){
         PersonageDto newPersonage = personageService.update(id, personage);
         return ResponseEntity.ok().body(newPersonage);

@@ -5,10 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
-
+@Entity
 @Getter
 @Setter
-@Entity
 @Table(name = "personage")
 public class Personage {
 

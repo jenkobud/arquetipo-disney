@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/films")
 public class FilmController {
 
